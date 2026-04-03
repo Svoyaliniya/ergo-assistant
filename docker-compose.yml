@@ -1,0 +1,11 @@
+services:
+  brain:
+    build: .
+    container_name: assistant-brain
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - HOST=0.0.0.0
+      - BRAIN_API_KEY=${BRAIN_API_KEY}
+    restart: unless-stopped
