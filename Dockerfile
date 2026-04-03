@@ -5,7 +5,8 @@ WORKDIR /app
 
 # Только зависимости (кэшируется)
 COPY package*.json ./
-RUN npm ci --omit=dev
+#RUN npm ci --omit=dev
+RUN npm ci
 
 # Код
 COPY src ./src

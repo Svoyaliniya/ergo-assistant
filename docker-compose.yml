@@ -5,7 +5,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - PORT=3000
-      - HOST=0.0.0.0
-      - BRAIN_API_KEY=${BRAIN_API_KEY}
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      NODE_ENV: "production"
+      BRAIN_API_KEY: "${BRAIN_API_KEY}"
     restart: unless-stopped

@@ -1,0 +1,20 @@
+services:
+  brain:
+    image: node:20-alpine
+    working_dir: /app
+    container_name: assistant-brain
+    ports:
+      - "3000:3000"
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      NODE_ENV: "development"
+      BRAIN_API_KEY: "${BRAIN_API_KEY}"
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+    command: sh -lc "npm install && npm run dev"
+    restart: unless-stopped
+
+volumes:
+  node_modules:

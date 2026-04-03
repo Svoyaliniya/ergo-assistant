@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "dev": "nodemon --legacy-watch src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
   "type": "module",
   "dependencies": {
     "fastify": "^5.8.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
