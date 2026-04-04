@@ -10,3 +10,5 @@ services:
       NODE_ENV: "production"
       BRAIN_API_KEY: "${BRAIN_API_KEY}"
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

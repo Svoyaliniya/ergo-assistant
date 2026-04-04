@@ -1,20 +1,25 @@
 services:
   brain:
-    image: node:20-alpine
-    working_dir: /app
+    build: .
     container_name: assistant-brain
     ports:
-      - "3000:3000"
+      - "3000:3000"    
     environment:
       HOST: "0.0.0.0"
       PORT: "3000"
       NODE_ENV: "development"
       BRAIN_API_KEY: "${BRAIN_API_KEY}"
+      PIPER_BIN: "${PIPER_BIN}"
+      PIPER_MODEL: "${PIPER_MODEL}"
     volumes:
       - ./:/app
       - node_modules:/app/node_modules
     command: sh -lc "npm install && npm run dev"
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    image: node:20-alpine
+    working_dir: /app
 
 volumes:
   node_modules:
